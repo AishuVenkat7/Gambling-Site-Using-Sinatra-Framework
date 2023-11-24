@@ -1,0 +1,19 @@
+<div class="container">
+
+<% if session[:message] %>
+    <h2><%= session[:message] %> </h2>
+    <% session[:message] = nil %>
+<% end %>
+<h2>login form </h2>
+<form action="/login" method="post">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" name="username" placeholder="Enter username" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" placeholder="Password" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>

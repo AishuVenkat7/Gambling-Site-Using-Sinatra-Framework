@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Register</h2>
+    <form action="/signup" method="post">
+        <div class="inputBox">
+            <label for="userName">Username</label>
+            <input type="text" name="user[username]" placeholder="Enter username" required/>
+        </div>
+        <div class="inputBox">
+            <label for="password">Password</label>
+            <input type="password" name="user[password]" placeholder="password"
+                   required/>
+        </div>
+        <div class="inputBox">
+            <label for="userConfirmPassword">Confirm Password</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" 
+            placeholder="confirm your password" required/>
+        </div>
+        <button type="submit" class="btn btn-primary" style="float: left;">Submit</button>
+        <br>
+        <br> <br>
+        <p> already have an account:  <a class="button" href="/login">Login</a> <p>
+    </form>
+</div>
+

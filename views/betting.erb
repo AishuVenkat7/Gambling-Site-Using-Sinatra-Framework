@@ -1,0 +1,56 @@
+<h3>Gambling Site.. Welcome <%= user.username %></h3>
+<div style="width: 1000px; height: 570px">
+<div style="width: 50%; height: 50%; float: left">
+<h3>Place your bet on dice number (1 to 6)</h3>
+<form action="/bet" method="post">
+  <div class="form-group">
+    <label for="bet_money">bet money</label>
+    <input type="text" class="form-control" name="bet_money" placeholder="money" required>
+  </div>
+  <div class="form-group">
+    <label for="dice_number">on dice number</label>
+    <input type="text" class="form-control" name="dice_number" placeholder="dice number" required>
+  </div>
+  <button type="submit" class="btn btn-primary" style="margin-left: 150px;">Submit</button>
+</form>
+</div>
+<div style="width: 50%; height: 50%; float: left;">
+<% if session[:message]%>
+    <h2>The dice landed on <%= session[:random_number]%>, and <%= session[:message] %> 
+    <%= session[:money] %> dollars </h2>
+    <% session[:message] = nil %>
+<% end %>
+    <div class="row">
+        <h4>Total Win</h4>
+        <p><%= session[:total_wins] %></p>
+    </div>
+    <div class="row">
+        <h4>Total Loss</h4>
+        <p><%= session[:total_losses] %></p>
+    </div>
+    <div class="row">
+        <h4>Total Profit</h4>
+        <p><%= session[:total_profit] %></p>
+    </div>
+</div>
+<div style="width: 100%; height: 35%; float: left">
+<br><br><br>
+<h3 style="margin-left: 100px;"> Account </h3>
+    <table>
+        <tr>
+            <th>Total Win</th>
+            <th>Total Loss</th>
+            <th>Total Profit</th>
+        </tr>
+        <tr>
+            <td><%= user.total_wins %></td>
+            <td><%= user.total_losses %></td>
+            <td><%= user.total_profit %></td>
+        </tr>
+    </table>
+</div>
+<div style="width: 100%; height: 15%; float: left">
+<br><br>
+<a class = "button" href="/logout" style="margin-left: 200px;">logout</a>
+</div>
+</div>
